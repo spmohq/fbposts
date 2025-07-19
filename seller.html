@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <title>Seller Prompt Pack | Story + Review + Experience</title>
+  <link rel="icon" type="image/x-icon" href="spm.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts for Noto Serif (from brand page) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- Styles from Brand Page (index.html) --- */
+    :root {
+      --brand-blue: #2a4f6e;
+      --card-bg: #ffffff;
+      --border-color: #e0e0e0;
+      --text-muted: #5a748c;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: #e6f2ed;
+      color: #2c2c2c;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    main {
+      flex-grow: 1; /* Ensures the main content pushes the footer down */
+    }
+
+    header {
+      background: var(--card-bg);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo img {
+      height: 45px;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .site-name {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--brand-blue);
+    }
+    .tagline {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .legal-nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        gap: 15px;
+    }
+    .legal-nav a {
+        text-decoration: none;
+        color: var(--brand-blue);
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .legal-nav a:hover {
+        text-decoration: underline;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 25px 40px;
+        margin-top: auto; /* Pushes footer to the bottom */
+        font-size: 14px;
+        color: var(--text-muted);
+    }
+
+    /* --- Page-specific Styles (from 1seller.html) --- */
+    .container {
+      max-width: 800px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin: 40px auto; /* Added margin for spacing */
+      box-sizing: border-box;
+    }
+    .container h1 {
+      font-size: 24px;
+      color: #2a4f6e;
+      margin-top: 0;
+      text-align: center;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: #2a4f6e;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 5px;
+      font-size: 16px;
+    }
+    .tab-btn.active {
+      background: #1d3a52;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    textarea {
+      width: 100%;
+      min-height: 220px;
+      margin-top: 10px;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #fdfdfd;
+      font-family: 'Courier New', monospace;
+      box-sizing: border-box;
+    }
+    button.copy-btn {
+      margin-top: 15px;
+      background: #2a4f6e;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      width: auto;
+    }
+    button.copy-btn:hover {
+      background: #1d3a52;
+    }
+    .block {
+      margin-top: 20px;
+      background: #f8f9fa;
+      padding: 20px;
+      border-left: 4px solid #2a4f6e;
+      border-radius: 6px;
+    }
+    .block p {
+      margin: 5px 0;
+    }
+
+    /* --- Responsive Styles --- */
+    @media(max-width: 768px) {
+        header { 
+            flex-direction: column; 
+            gap: 20px; 
+            padding: 20px; 
+            text-align: center;
+        }
+        .container {
+            margin: 30px 15px;
+            padding: 20px;
+        }
+    }
+    @media (max-width: 600px) {
+      .container h1 {
+        font-size: 20px;
+      }
+      .tab-btn {
+        flex: 1 1 100%;
+        font-size: 16px;
+      }
+      textarea {
+        font-size: 15px;
+        min-height: 180px;
+      }
+      button.copy-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="name.jpg" alt="SPM Lab Logo">
+      <div class="logo-text">
+        <span class="site-name">SPMukherjee.online</span>
+        <span class="tagline">Multimedia Creator | Digital Marketing Specialist | Content Writer</span>
+      </div>
+    </div>
+    <nav class="legal-nav">
+        <ul>
+            <li><a href="https://spm.graphy.com/aboutus" target="_blank">About</a></li>
+            <li><a href="https://spm.graphy.com/termsofuse" target="_blank">Terms of Use</a></li>
+            <li><a href="https://spm.graphy.com/privacypolicy" target="_blank">Privacy Policy</a></li>
+            <li><a href="https://spm.graphy.com/contactus" target="_blank">Contact</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>📣 Seller Prompt Pack — Story + Review + Experience</h1>
+
+      <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(0)">Story</button>
+        <button class="tab-btn" onclick="openTab(1)">Review</button>
+        <button class="tab-btn" onclick="openTab(2)">Experience</button>
+      </div>
+
+      <!-- Story Prompt -->
+      <div class="tab-content active">
+        <h2>📌 Seller-Friendly Story Prompt</h2>
+        <textarea id="storyPrompt" readonly>
+এই প্রোডাক্ট নিয়ে একজন ক্রেতার গল্প লিখে বাংলায় আকর্ষণীয় ফেসবুক পোস্ট বানাও — [Product Name]
+
+➜ শুরুতে সমস্যার গল্প দাও — [Problem]।  
+➜ গল্পে [Product Name] naturally mention করো।  
+➜ ২–৩টা ছোট twist দাও।  
+➜ [Product Benefit] naturally mention করো — hard sell নয়।  
+➜ ছোট প্যারায় ভাগ করো, ইমোজি যোগ করো।  
+➜ CTA দাও — [Call to Action]।  
+➜ ভারতীয় বাংলা, বন্ধুত্বপূর্ণ টোনে। Target Audience: [Target Audience]।
+        </textarea>
+        <button class="copy-btn" onclick="copyText('storyPrompt')">💠 প্রম্পট কপি করো</button>
+
+        <div class="block">
+          <h3>📝 User Guide</h3>
+          <p>✅ [Product Name]: যেমন Herbal Shampoo</p>
+          <p>✅ [Problem]: যেমন চুল পড়া</p>
+          <p>✅ [Product Benefit]: যেমন চুল ঘন করতে সাহায্য করে</p>
+          <p>✅ [Call to Action]: যেমন "তোমার গল্প কমেন্ট করো 👇"</p>
+          <p>✅ [Target Audience]: যেমন ২৫–৪০ মহিলা</p>
+        </div>
+
+        <div class="block">
+          <h3>🎯 FULL Example</h3>
+          <p>
+এই প্রোডাক্ট নিয়ে একজন ক্রেতার গল্প লিখে বাংলায় আকর্ষণীয় ফেসবুক পোস্ট বানাও — Herbal Shampoo
+
+➜ শুরুতে সমস্যার গল্প দাও — রিমার চুল পড়ছিল।  
+➜ গল্পে Herbal Shampoo naturally mention করো।  
+➜ ২–৩টা ছোট twist দাও — বন্ধুর পরামর্শে ট্রাই, প্রথমে সন্দেহ, পরে চুল পড়া কমে যায়।  
+➜ Herbal Shampoo চুল ঘন করতে সাহায্য করে — এটা naturally mention করো।  
+➜ ছোট প্যারায় ভাগ করো, ইমোজি যোগ করো।  
+➜ CTA দাও — "তোমার গল্প কমেন্ট করো 👇"  
+➜ ভারতীয় বাংলা, বন্ধুত্বপূর্ণ টোনে। Target Audience: ২৫–৪০ মহিলা।
+          </p>
+        </div>
+      </div>
+
+      <!-- Review Prompt -->
+      <div class="tab-content">
+        <h2>📌 Seller-Friendly Review Prompt</h2>
+        <textarea id="reviewPrompt" readonly>
+এই প্রোডাক্ট নিয়ে একজন ক্রেতার রিভিউ বাংলায় লিখে ফেসবুক পোস্ট বানাও — [Product Name]
+
+➜ কেন কিনেছিল — [Purchase Reason]।  
+➜ ২–৩টা ফিচার দাও — [Product Features]।  
+➜ প্রত্যেকটার উপকারিতা — [Benefit & Experience]।  
+➜ খারাপ দিক থাকলে — [Any Drawback]।  
+➜ Honest verdict — রিকমেন্ড করবে কিনা।  
+➜ CTA দাও — [Call to Action]।  
+➜ ভারতীয় বাংলা, বন্ধুত্বপূর্ণ টোনে। Target Audience: [Target Audience]।
+        </textarea>
+        <button class="copy-btn" onclick="copyText('reviewPrompt')">💠 প্রম্পট কপি করো</button>
+
+        <div class="block">
+          <h3>📝 User Guide</h3>
+          <p>✅ [Product Name]: Portable Juicer</p>
+          <p>✅ [Purchase Reason]: fresh জুস বাইরে</p>
+          <p>✅ [Product Features]: USB charge, compact size</p>
+          <p>✅ [Benefit & Experience]: যেকোনো জায়গায় juice</p>
+          <p>✅ [Any Drawback]: charge কম থাকে</p>
+          <p>✅ [Call to Action]: মেসেজ করো 📩</p>
+          <p>✅ [Target Audience]: ছাত্রছাত্রী, ব্যাচেলর</p>
+        </div>
+
+        <div class="block">
+          <h3>🎯 FULL Example</h3>
+          <p>
+এই প্রোডাক্ট নিয়ে একজন ক্রেতার রিভিউ বাংলায় লিখে ফেসবুক পোস্ট বানাও — Portable Juicer
+
+➜ কেন কিনেছিল — অফিসে fresh জুস খাওয়ার জন্য।  
+➜ ২–৩টা ফিচার দাও — USB charge, compact size।  
+➜ প্রত্যেকটার উপকারিতা — যেকোনো জায়গায় juice বানানো যায়।  
+➜ খারাপ দিক থাকলে — charge একটু কম থাকে।  
+➜ Honest verdict — রিকমেন্ড করবে।  
+➜ CTA দাও — "মেসেজ করো 📩"  
+➜ ভারতীয় বাংলা, বন্ধুত্বপূর্ণ টোনে। Target Audience: ছাত্রছাত্রী, ব্যাচেলর।
+          </p>
+        </div>
+      </div>
+
+      <!-- Experience Prompt -->
+      <div class="tab-content">
+        <h2>📌 Seller-Friendly Experience Prompt</h2>
+        <textarea id="experiencePrompt" readonly>
+এই প্রোডাক্ট নিয়ে একজন ক্রেতার অভিজ্ঞতা আর গল্প লিখে বাংলায় ফেসবুক পোস্ট বানাও — [Product Name]
+
+➜ শুরুতে সমস্যার কথা বলো — [Problem]।  
+➜ ব্যবহার অভিজ্ঞতা দাও — [Experience]।  
+➜ ২–৩টা ফিচার আর উপকারিতা — [Product Features & Benefits]।  
+➜ বাস্তব উদাহরণ — [Real Example]।  
+➜ CTA দাও — [Call to Action]।  
+➜ ভারতীয় বাংলা, বন্ধুত্বপূর্ণ টোনে। Target Audience: [Target Audience]।
+        </textarea>
+        <button class="copy-btn" onclick="copyText('experiencePrompt')">💠 প্রম্পট কপি করো</button>
+
+        <div class="block">
+          <h3>📝 User Guide</h3>
+          <p>✅ [Product Name]: Herbal Shampoo</p>
+          <p>✅ [Problem]: চুল পড়া</p>
+          <p>✅ [Experience]: ২ মাসের ব্যবহার</p>
+          <p>✅ [Product Features & Benefits]: হারবাল, কেমিকেল ফ্রি</p>
+          <p>✅ [Real Example]: ছোট গল্প</p>
+          <p>✅ [Call to Action]: কমেন্ট করো 👇</p>
+          <p>✅ [Target Audience]: ২৫–৪০ মহিলা</p>
+        </div>
+
+        <div class="block">
+          <h3>🎯 FULL Example</h3>
+          <p>
+এই প্রোডাক্ট নিয়ে একজন ক্রেতার অভিজ্ঞতা আর গল্প লিখে বাংলায় ফেসবুক পোস্ট বানাও — Herbal Shampoo
+
+➜ শুরুতে সমস্যার কথা বলো — চুল পড়া।  
+➜ ব্যবহার অভিজ্ঞতা দাও — রিমা ২ মাস ব্যবহার করেছে।  
+➜ ২–৩টা ফিচার আর উপকারিতা — হারবাল, কেমিকেল ফ্রি, চুল ঘন করে।  
+➜ বাস্তব উদাহরণ — বন্ধুর suggestion থেকে try করেছে, ফল ভালো পেয়েছে।  
+➜ CTA দাও — "কমেন্ট করো 👇"  
+➜ ভারতীয় বাংলা, বন্ধুত্বপূর্ণ টোনে। Target Audience: ২৫–৪০ মহিলা।
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Siva Prasad Mukherjee. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function openTab(index) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-btn');
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+        buttons[i].classList.toggle('active', i === index);
+      });
+    }
+    function copyText(id) {
+      const text = document.getElementById(id).value;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('✅ প্রম্পট কপি হয়েছে!');
+      }).catch(() => {
+        alert('❌ কপি করতে সমস্যা হয়েছে। হাতে কপি করো।');
+      });
+    }
+  </script>
+</body>
+</html>
